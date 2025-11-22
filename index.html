@@ -4,316 +4,225 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>전주솔내고등학교 2학년 7반</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts: Noto Sans KR -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS (스타일링을 위해 사용) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 아이콘 (Lucide) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        /* 기본 설정 */
-        :root {
-            --primary-color: #2E5E4E; /* 솔내고 느낌의 짙은 녹색 */
-            --accent-color: #6ABF69; /* 밝은 연두색 */
-            --bg-color: #F9FBF9;
-            --text-color: #333;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Noto Sans KR', sans-serif;
-        }
-
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #F3F4F6;
         }
-
-        /* 헤더 영역 */
-        header {
-            background-color: #fff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            padding: 1rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+        .solnae-green {
+            color: #2E5E4E;
         }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
+        .bg-solnae-green {
+            background-color: #2E5E4E;
         }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            text-decoration: none;
+        .hover-solnae-green:hover {
+            background-color: #244a3d;
         }
-
-        .nav-links a {
-            margin-left: 20px;
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
-
-        /* 메인 비주얼 (이미지 영역) */
-        .hero {
-            position: relative;
-            width: 100%;
-            max-width: 1200px;
-            margin: 20px auto;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .hero img {
-            width: 100%;
-            height: auto;
-            display: block;
-            /* 이미지가 너무 클 경우 높이 제한 (선택사항) */
-            max-height: 500px; 
-            object-fit: cover;
-        }
-
-        .hero-text {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 15px 25px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .hero-text h2 {
-            color: var(--primary-color);
-            margin-bottom: 5px;
-        }
-
-        /* 컨텐츠 영역 */
-        .container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 30px;
-        }
-
-        /* 공지사항 섹션 */
-        .section-title {
-            font-size: 1.4rem;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 10px;
-            display: inline-block;
-        }
-
-        .notice-board {
-            background: #fff;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-
-        .notice-item {
-            padding: 15px 0;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .notice-item:last-child {
-            border-bottom: none;
-        }
-
-        .notice-tag {
-            background-color: var(--accent-color);
-            color: white;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            margin-right: 10px;
-        }
-
-        .notice-title {
-            flex-grow: 1;
-            font-weight: 500;
-        }
-
-        .notice-date {
-            font-size: 0.9rem;
-            color: #888;
-        }
-
-        /* 퀵 링크 (카드) 섹션 */
-        .quick-links {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .card {
-            background: white;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            text-align: center;
-            transition: transform 0.2s;
-            cursor: pointer;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            border: 1px solid var(--accent-color);
-        }
-
-        .card h3 {
-            margin-bottom: 10px;
-            color: var(--primary-color);
-        }
-
-        .btn {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 8px 20px;
-            background-color: var(--primary-color);
-            color: white;
-            text-decoration: none;
-            border-radius: 20px;
-            font-size: 0.9rem;
-        }
-
-        /* 푸터 */
-        footer {
-            text-align: center;
-            padding: 30px;
-            background-color: #333;
-            color: #fff;
-            margin-top: 50px;
-        }
-
-        footer p {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        /* 모바일 반응형 */
-        @media (max-width: 768px) {
-            .container {
-                grid-template-columns: 1fr;
-            }
-            
-            .nav-links {
-                display: none; /* 모바일에서는 간단히 숨김 처리 (실제론 햄버거 메뉴 필요) */
-            }
-
-            .hero-text {
-                position: relative;
-                bottom: auto;
-                right: auto;
-                margin-top: -20px;
-                margin-bottom: 20px;
-                text-align: center;
-                width: 90%;
-                margin-left: auto;
-                margin-right: auto;
-            }
+        .card-shadow {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
     </style>
 </head>
-<body>
+<body class="flex flex-col min-h-screen">
 
-    <header>
-        <nav>
-            <a href="#" class="logo">전주솔내고 2-7</a>
-            <div class="nav-links">
-                <a href="#">학급공지</a>
-                <a href="#">우리반앨범</a>
-                <a href="#">과제제출</a>
-                <a href="#">학생상담</a>
+    <!-- 상단 네비게이션 -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- 로고 영역 -->
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="location.reload()">
+                    <i data-lucide="graduation-cap" class="w-8 h-8 text-[#2E5E4E]"></i>
+                    <span class="font-bold text-xl text-[#2E5E4E]">전주솔내고 2-7</span>
+                </div>
+                
+                <!-- 데스크탑 메뉴 -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="https://script.google.com/macros/s/AKfycbwivZIML3cpFVc-oPVlRpQOoLdlEK3dfDoh3VY0KDDX004LM9hwyq_DilH7QLcxiik/exec" target="_blank" class="text-gray-600 hover:text-[#2E5E4E] px-3 py-2 rounded-md text-sm font-medium transition-colors">합격자 조회</a>
+                    <a href="https://script.google.com/macros/s/AKfycbzW3IUpRpKEjbwLMNrlZS-rGv5aUdiutDczSX-qN6xI5CSGVaG-iHcs4kIKMSne06A/exec" target="_blank" class="text-gray-600 hover:text-[#2E5E4E] px-3 py-2 rounded-md text-sm font-medium transition-colors">도서 점수 현황</a>
+                    <a href="#" class="text-gray-600 hover:text-[#2E5E4E] px-3 py-2 rounded-md text-sm font-medium transition-colors">과제제출</a>
+                    <a href="#" class="text-gray-600 hover:text-[#2E5E4E] px-3 py-2 rounded-md text-sm font-medium transition-colors">마음상담</a>
+                </nav>
+
+                <!-- 모바일 메뉴 버튼 (기능은 생략) -->
+                <div class="md:hidden flex items-center">
+                    <button class="text-gray-500 hover:text-[#2E5E4E] focus:outline-none p-2">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
             </div>
-        </nav>
+        </div>
     </header>
 
-    <section class="hero">
-        <img src="솔내고 일러스트(완성).png" alt="전주솔내고등학교 전경">
-        <div class="hero-text">
-            <h2>환영합니다! 👋</h2>
-            <p>참되고 아름답고 슬기로운<br><strong>2학년 7반</strong>의 공간입니다.</p>
-        </div>
-    </section>
-
-    <div class="container">
-        <div class="main-content">
-            <h2 class="section-title">📢 학급 공지사항</h2>
-            <div class="notice-board">
-                <div class="notice-item">
-                    <div>
-                        <span class="notice-tag">필독</span>
-                        <span class="notice-title">2학기 중간고사 시험범위 안내</span>
-                    </div>
-                    <span class="notice-date">2025.09.20</span>
-                </div>
-                <div class="notice-item">
-                    <div>
-                        <span class="notice-tag">안내</span>
-                        <span class="notice-title">독서 멘토링 프로그램 신청자 모집</span>
-                    </div>
-                    <span class="notice-date">2025.09.18</span>
-                </div>
-                <div class="notice-item">
-                    <div>
-                        <span class="notice-tag">행사</span>
-                        <span class="notice-title">가을 체육대회 반티 결정 투표</span>
-                    </div>
-                    <span class="notice-date">2025.09.15</span>
-                </div>
-                <div class="notice-item">
-                    <div>
-                        <span class="notice-tag">과제</span>
-                        <span class="notice-title">국어 수행평가 독서감상문 양식</span>
-                    </div>
-                    <span class="notice-date">2025.09.10</span>
+    <!-- 메인 컨텐츠 영역 -->
+    <main class="flex-grow">
+        
+        <!-- 히어로 섹션 (메인 이미지) -->
+        <div class="max-w-6xl mx-auto mt-6 px-4 sm:px-6 lg:px-8">
+            <div class="relative rounded-2xl overflow-hidden shadow-lg bg-gray-200 aspect-[21/9] group">
+                <img 
+                    src="솔내고 일러스트(완성).png" 
+                    alt="전주솔내고등학교 전경" 
+                    class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                >
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-6 sm:p-10">
+                    <h1 class="text-white text-2xl sm:text-4xl font-bold mb-2 drop-shadow-md">참되고 아름답고 슬기롭게</h1>
+                    <p class="text-white/90 text-sm sm:text-lg font-light">꿈을 향해 함께 나아가는 <span class="font-bold text-[#6ABF69]">2학년 7반</span>입니다.</p>
                 </div>
             </div>
         </div>
 
-        <aside class="quick-links">
-            <div class="card">
-                <h3>📅 이번 주 시간표</h3>
-                <p>변경된 시간표를 확인하세요.</p>
-                <a href="#" class="btn">확인하기</a>
-            </div>
-            <div class="card">
-                <h3>🍱 오늘의 급식</h3>
-                <p>맛있는 점심 메뉴 미리보기</p>
-                <a href="#" class="btn">메뉴 보기</a>
-            </div>
-            <div class="card">
-                <h3>🔗 유용한 링크</h3>
-                <p>전주솔내고 홈페이지<br>EBS 온라인 클래스</p>
-                <a href="#" class="btn">이동하기</a>
-            </div>
-        </aside>
-    </div>
+        <!-- 게시판 및 위젯 그리드 -->
+        <div class="max-w-6xl mx-auto mt-8 px-4 sm:px-6 lg:px-8 pb-12">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- 왼쪽: 공지사항 (2칸 차지) -->
+                <div class="lg:col-span-2 space-y-6">
+                    <div class="bg-white rounded-xl card-shadow p-6">
+                        <div class="flex justify-between items-center mb-4 border-b pb-2 border-gray-100">
+                            <h2 class="text-lg font-bold text-[#2E5E4E] flex items-center gap-2">
+                                <i data-lucide="megaphone" class="w-5 h-5"></i> 학급 공지사항
+                            </h2>
+                            <a href="#" class="text-xs text-gray-400 hover:text-[#2E5E4E]">더보기 +</a>
+                        </div>
+                        
+                        <!-- 공지 리스트 -->
+                        <ul class="space-y-4">
+                            <li class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-4 hover:bg-gray-50 p-2 rounded-lg transition-colors cursor-pointer">
+                                <div class="flex items-center gap-3 overflow-hidden">
+                                    <span class="bg-red-100 text-red-600 text-xs font-bold px-2 py-1 rounded whitespace-nowrap">필독</span>
+                                    <span class="text-gray-800 font-medium truncate">2학기 중간고사 시험범위 최종 안내</span>
+                                </div>
+                                <span class="text-gray-400 text-xs whitespace-nowrap">2025.09.20</span>
+                            </li>
+                            <li class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-4 hover:bg-gray-50 p-2 rounded-lg transition-colors cursor-pointer">
+                                <div class="flex items-center gap-3 overflow-hidden">
+                                    <span class="bg-blue-100 text-blue-600 text-xs font-bold px-2 py-1 rounded whitespace-nowrap">안내</span>
+                                    <span class="text-gray-800 truncate">독서 멘토링 프로그램 참가 희망자 조사</span>
+                                </div>
+                                <span class="text-gray-400 text-xs whitespace-nowrap">2025.09.18</span>
+                            </li>
+                            <li class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-4 hover:bg-gray-50 p-2 rounded-lg transition-colors cursor-pointer">
+                                <div class="flex items-center gap-3 overflow-hidden">
+                                    <span class="bg-green-100 text-green-600 text-xs font-bold px-2 py-1 rounded whitespace-nowrap">행사</span>
+                                    <span class="text-gray-800 truncate">가을 체육대회 반티 디자인 투표 결과</span>
+                                </div>
+                                <span class="text-gray-400 text-xs whitespace-nowrap">2025.09.15</span>
+                            </li>
+                            <li class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-4 hover:bg-gray-50 p-2 rounded-lg transition-colors cursor-pointer">
+                                <div class="flex items-center gap-3 overflow-hidden">
+                                    <span class="bg-gray-100 text-gray-600 text-xs font-bold px-2 py-1 rounded whitespace-nowrap">과제</span>
+                                    <span class="text-gray-800 truncate">국어 수행평가 독서감상문 양식 다운로드</span>
+                                </div>
+                                <span class="text-gray-400 text-xs whitespace-nowrap">2025.09.10</span>
+                            </li>
+                        </ul>
+                    </div>
 
-    <footer>
-        <p>전주솔내고등학교 2학년 7반</p>
-        <p>담임교사: 선생님 성함 | 교무실: 063-XXX-XXXX</p>
-        <p>&copy; 2025 Jeonju Solnae High School Class 2-7. All rights reserved.</p>
+                    <!-- 사진 갤러리 미리보기 -->
+                    <div class="bg-white rounded-xl card-shadow p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <h2 class="text-lg font-bold text-[#2E5E4E] flex items-center gap-2">
+                                <i data-lucide="image" class="w-5 h-5"></i> 우리반 활동 앨범
+                            </h2>
+                            <a href="#" class="text-xs text-gray-400 hover:text-[#2E5E4E]">더보기 +</a>
+                        </div>
+                        <div class="grid grid-cols-3 gap-2">
+                            <div class="aspect-square bg-gray-100 rounded-lg overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover hover:scale-110 transition-transform cursor-pointer" alt="활동사진">
+                            </div>
+                            <div class="aspect-square bg-gray-100 rounded-lg overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover hover:scale-110 transition-transform cursor-pointer" alt="활동사진">
+                            </div>
+                            <div class="aspect-square bg-gray-100 rounded-lg overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover hover:scale-110 transition-transform cursor-pointer" alt="활동사진">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 오른쪽: 퀵 메뉴 및 정보 (1칸 차지) -->
+                <div class="lg:col-span-1 space-y-6">
+                    
+                    <!-- 환영 메시지 -->
+                    <div class="bg-[#2E5E4E] rounded-xl card-shadow p-6 text-white text-center">
+                        <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                             <i data-lucide="smile" class="w-8 h-8 text-white"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-1">오늘도 힘내자!</h3>
+                        <p class="text-sm text-white/80 mb-4">"가장 큰 영광은 한 번도 실패하지 않음이 아니라, 실패할 때마다 다시 일어서는 데 있다."</p>
+                        <button class="w-full py-2 bg-white text-[#2E5E4E] rounded-lg font-bold text-sm hover:bg-gray-100 transition-colors">
+                            학급 규칙 보기
+                        </button>
+                    </div>
+
+                    <!-- 바로가기 메뉴 -->
+                    <div class="bg-white rounded-xl card-shadow p-6">
+                        <h3 class="font-bold text-gray-800 mb-4 text-sm">바로가기</h3>
+                        <div class="grid grid-cols-2 gap-3">
+                            <a href="#" class="flex flex-col items-center justify-center p-3 bg-gray-50 rounded-lg hover:bg-green-50 hover:text-[#2E5E4E] transition-colors group">
+                                <i data-lucide="calendar" class="w-6 h-6 mb-2 text-gray-400 group-hover:text-[#2E5E4E]"></i>
+                                <span class="text-xs font-medium">시간표</span>
+                            </a>
+                            <a href="#" class="flex flex-col items-center justify-center p-3 bg-gray-50 rounded-lg hover:bg-green-50 hover:text-[#2E5E4E] transition-colors group">
+                                <i data-lucide="utensils" class="w-6 h-6 mb-2 text-gray-400 group-hover:text-[#2E5E4E]"></i>
+                                <span class="text-xs font-medium">급식메뉴</span>
+                            </a>
+                            <a href="#" class="flex flex-col items-center justify-center p-3 bg-gray-50 rounded-lg hover:bg-green-50 hover:text-[#2E5E4E] transition-colors group">
+                                <i data-lucide="book-open" class="w-6 h-6 mb-2 text-gray-400 group-hover:text-[#2E5E4E]"></i>
+                                <span class="text-xs font-medium">학습자료</span>
+                            </a>
+                            <a href="#" class="flex flex-col items-center justify-center p-3 bg-gray-50 rounded-lg hover:bg-green-50 hover:text-[#2E5E4E] transition-colors group">
+                                <i data-lucide="link" class="w-6 h-6 mb-2 text-gray-400 group-hover:text-[#2E5E4E]"></i>
+                                <span class="text-xs font-medium">학교홈피</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- D-day 카운터 -->
+                    <div class="bg-white rounded-xl card-shadow p-5 flex items-center justify-between border-l-4 border-[#6ABF69]">
+                        <div>
+                            <p class="text-xs text-gray-500 font-medium">중간고사까지</p>
+                            <h4 class="text-lg font-bold text-gray-800">D-28</h4>
+                        </div>
+                        <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center">
+                            <i data-lucide="clock" class="w-5 h-5 text-gray-500"></i>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 푸터 -->
+    <footer class="bg-gray-800 text-gray-300 py-8">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p class="font-bold text-white mb-2">전주솔내고등학교 2학년 7반</p>
+            <p class="text-sm opacity-70 mb-4">담임교사: 선생님 성함 | 교무실: 063-XXX-XXXX</p>
+            <div class="text-xs text-gray-500">
+                &copy; 2025 Jeonju Solnae High School Class 2-7. All rights reserved.
+            </div>
+        </div>
     </footer>
 
+    <script>
+        // 아이콘 실행
+        lucide.createIcons();
+        
+        // 공지사항 클릭 시 간단한 인터랙션 (예시)
+        const notices = document.querySelectorAll('li');
+        notices.forEach(notice => {
+            notice.addEventListener('click', () => {
+                // 실제로는 상세 페이지로 이동하겠지만 여기선 알림창 대신 콘솔 로그
+                console.log("공지사항 클릭됨");
+            });
+        });
+    </script>
 </body>
 </html>
