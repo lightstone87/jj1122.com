@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전주솔내고등학교 2학년 7반</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* 기본 설정 */
+        :root {
+            --primary-color: #2E5E4E; /* 솔내고 느낌의 짙은 녹색 */
+            --accent-color: #6ABF69; /* 밝은 연두색 */
+            --bg-color: #F9FBF9;
+            --text-color: #333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* 헤더 영역 */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* 메인 비주얼 (이미지 영역) */
+        .hero {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .hero img {
+            width: 100%;
+            height: auto;
+            display: block;
+            /* 이미지가 너무 클 경우 높이 제한 (선택사항) */
+            max-height: 500px; 
+            object-fit: cover;
+        }
+
+        .hero-text {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .hero-text h2 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        /* 컨텐츠 영역 */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        /* 공지사항 섹션 */
+        .section-title {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .notice-board {
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .notice-item {
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .notice-item:last-child {
+            border-bottom: none;
+        }
+
+        .notice-tag {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 10px;
+        }
+
+        .notice-title {
+            flex-grow: 1;
+            font-weight: 500;
+        }
+
+        .notice-date {
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        /* 퀵 링크 (카드) 섹션 */
+        .quick-links {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border: 1px solid var(--accent-color);
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* 푸터 */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #333;
+            color: #fff;
+            margin-top: 50px;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* 모바일 반응형 */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none; /* 모바일에서는 간단히 숨김 처리 (실제론 햄버거 메뉴 필요) */
+            }
+
+            .hero-text {
+                position: relative;
+                bottom: auto;
+                right: auto;
+                margin-top: -20px;
+                margin-bottom: 20px;
+                text-align: center;
+                width: 90%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="#" class="logo">전주솔내고 2-7</a>
+            <div class="nav-links">
+                <a href="#">학급공지</a>
+                <a href="#">우리반앨범</a>
+                <a href="#">과제제출</a>
+                <a href="#">학생상담</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <img src="솔내고 일러스트(완성).png" alt="전주솔내고등학교 전경">
+        <div class="hero-text">
+            <h2>환영합니다! 👋</h2>
+            <p>참되고 아름답고 슬기로운<br><strong>2학년 7반</strong>의 공간입니다.</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="main-content">
+            <h2 class="section-title">📢 학급 공지사항</h2>
+            <div class="notice-board">
+                <div class="notice-item">
+                    <div>
+                        <span class="notice-tag">필독</span>
+                        <span class="notice-title">2학기 중간고사 시험범위 안내</span>
+                    </div>
+                    <span class="notice-date">2025.09.20</span>
+                </div>
+                <div class="notice-item">
+                    <div>
+                        <span class="notice-tag">안내</span>
+                        <span class="notice-title">독서 멘토링 프로그램 신청자 모집</span>
+                    </div>
+                    <span class="notice-date">2025.09.18</span>
+                </div>
+                <div class="notice-item">
+                    <div>
+                        <span class="notice-tag">행사</span>
+                        <span class="notice-title">가을 체육대회 반티 결정 투표</span>
+                    </div>
+                    <span class="notice-date">2025.09.15</span>
+                </div>
+                <div class="notice-item">
+                    <div>
+                        <span class="notice-tag">과제</span>
+                        <span class="notice-title">국어 수행평가 독서감상문 양식</span>
+                    </div>
+                    <span class="notice-date">2025.09.10</span>
+                </div>
+            </div>
+        </div>
+
+        <aside class="quick-links">
+            <div class="card">
+                <h3>📅 이번 주 시간표</h3>
+                <p>변경된 시간표를 확인하세요.</p>
+                <a href="#" class="btn">확인하기</a>
+            </div>
+            <div class="card">
+                <h3>🍱 오늘의 급식</h3>
+                <p>맛있는 점심 메뉴 미리보기</p>
+                <a href="#" class="btn">메뉴 보기</a>
+            </div>
+            <div class="card">
+                <h3>🔗 유용한 링크</h3>
+                <p>전주솔내고 홈페이지<br>EBS 온라인 클래스</p>
+                <a href="#" class="btn">이동하기</a>
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <p>전주솔내고등학교 2학년 7반</p>
+        <p>담임교사: 선생님 성함 | 교무실: 063-XXX-XXXX</p>
+        <p>&copy; 2025 Jeonju Solnae High School Class 2-7. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
